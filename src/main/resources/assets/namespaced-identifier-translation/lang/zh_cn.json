@@ -1,5 +1,7 @@
 {
   "modmenu.mcmod": "MC百科",
   "modmenu.curseforge": "CurseForge",
-  "modmenu.modrinth": "Modrinth"
+  "modmenu.modrinth": "Modrinth",
+  "modmenu.descriptionTranslation.namespaced-identifier-translation": "",
+  "modmenu.summaryTranslation.namespaced-identifier-translation": ""
 }
