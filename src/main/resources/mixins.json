@@ -4,9 +4,9 @@
   "package": "Yeah_Zero.Namespaced_Identifier_Translation.Mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "LocateCommandMixin"
   ],
   "client": [
-    "ExampleMixin"
   ],
   "injectors": {
     "defaultRequire": 1
