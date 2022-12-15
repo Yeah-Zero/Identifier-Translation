@@ -1,26 +1,26 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
+  "id": "namespaced-identifier-translation",
   "version": "${version}",
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "命名空间标识符翻译",
+  "description": "",
   "authors": [
-    "Me!"
+    "§e烨§b凌"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "homepage": "https://github.com/Yeah-Zero/Namespaced-Identifier-Translation",
+    "issues": "https://github.com/Yeah-Zero/Namespaced-Identifier-Translation/issues"
   },
-  "license": "CC0-1.0",
-  "icon": "assets/modid/icon.png",
+  "license": "GNU 宽通用公共许可证 3.0",
+  "icon": "assets/namespaced-identifier-translation/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.fabricmc.example.ExampleMod"
+      "Yeah_Zero.Namespaced_Identifier_Translation.Initializer.Main"
     ]
   },
   "mixins": [
-    "modid.mixins.json"
+    "mixins.json"
   ],
   "depends": {
     "fabricloader": ">=0.14.11",
@@ -28,7 +28,13 @@
     "minecraft": "~1.19.3",
     "java": ">=17"
   },
-  "suggests": {
-    "another-mod": "*"
+  "custom": {
+    "modmenu": {
+      "links": {
+        "modmenu.mcmod": "",
+        "modmenu.curseforge": "",
+        "modmenu.modrinth": ""
+      }
+    }
   }
 }
