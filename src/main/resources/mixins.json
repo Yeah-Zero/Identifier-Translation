@@ -6,8 +6,6 @@
   "mixins": [
     "LocateCommandMixin"
   ],
-  "client": [
-  ],
   "injectors": {
     "defaultRequire": 1
   }

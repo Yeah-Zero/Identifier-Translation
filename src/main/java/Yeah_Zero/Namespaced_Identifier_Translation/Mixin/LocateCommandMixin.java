@@ -1,5 +1,6 @@
 package Yeah_Zero.Namespaced_Identifier_Translation.Mixin;
 
+import Yeah_Zero.Namespaced_Identifier_Translation.Configure.Configuration;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.command.argument.RegistryEntryPredicateArgumentType;
 import net.minecraft.command.argument.RegistryPredicateArgumentType;
@@ -33,10 +34,10 @@ public class LocateCommandMixin {
     @Inject(method = "sendCoordinates(Lnet/minecraft/server/command/ServerCommandSource;Lnet/minecraft/command/argument/RegistryEntryPredicateArgumentType$EntryPredicate;Lnet/minecraft/util/math/BlockPos;Lcom/mojang/datafixers/util/Pair;Ljava/lang/String;ZLjava/time/Duration;)I", at = @At("HEAD"))
     private static void 获取谓词(ServerCommandSource 来源, RegistryEntryPredicateArgumentType.EntryPredicate<?> 谓词, BlockPos 当前坐标, Pair<BlockPos, ? extends RegistryEntry<?>> 结果, String 成功消息, boolean 包括Y坐标, Duration 用时, CallbackInfoReturnable<Integer> 可返回回调信息) {
         谓词.getEntry().map((条目) -> {
-            标识符翻译 = Text.translatable(谓词.asString()).setStyle(Style.EMPTY.withColor(Formatting.AQUA).withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, Text.literal(谓词.asString()))));
+            标识符翻译 = Text.translatable(谓词.asString()).setStyle(Style.EMPTY.withColor(Configuration.配置项.标识符颜色.获取格式代码()).withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, Text.literal(谓词.asString()))));
             return null;
         }, (标签) -> {
-            标识符翻译 = Text.translatable(谓词.asString()).setStyle(Style.EMPTY.withColor(Formatting.GOLD).withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, Text.literal(谓词.asString())))).append(Text.literal(" (").setStyle(Style.EMPTY.withColor(Formatting.WHITE))).append(Text.translatable(获取键名字符串(结果)).setStyle(Style.EMPTY.withColor(Formatting.AQUA).withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, Text.literal(获取键名字符串(结果)))))).append(Text.literal(")").setStyle(Style.EMPTY.withColor(Formatting.WHITE)));
+            标识符翻译 = Text.translatable("阿巴阿巴", Text.translatable(谓词.asString()).setStyle(Style.EMPTY.withColor(Configuration.配置项.标签颜色.获取格式代码()).withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, Text.literal(谓词.asString())))), Text.translatable(获取键名字符串(结果)).setStyle(Style.EMPTY.withColor(Configuration.配置项.标识符颜色.获取格式代码()).withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, Text.literal(获取键名字符串(结果))))));
             return null;
         });
     }
@@ -47,7 +48,7 @@ public class LocateCommandMixin {
             标识符翻译 = Text.translatable(键名.getValue().toString()).setStyle(Style.EMPTY.withColor(Formatting.AQUA).withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, Text.literal(键名.getValue().toString()))));
             return null;
         }, (键名) -> {
-            标识符翻译 = Text.translatable("#" + 键名.id().toString()).setStyle(Style.EMPTY.withColor(Formatting.GOLD).withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, Text.literal("#" + 键名.id().toString())))).append(Text.literal(" (").setStyle(Style.EMPTY.withColor(Formatting.WHITE))).append(Text.translatable(获取键名字符串(结果)).setStyle(Style.EMPTY.withColor(Formatting.AQUA).withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, Text.literal(获取键名字符串(结果)))))).append(Text.literal(")").setStyle(Style.EMPTY.withColor(Formatting.WHITE)));
+            标识符翻译 = Text.translatable("阿巴阿巴", Text.translatable(键名.id().toString()).setStyle(Style.EMPTY.withColor(Configuration.配置项.标签颜色.获取格式代码()).withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, Text.literal(键名.id().toString())))), Text.translatable(获取键名字符串(结果)).setStyle(Style.EMPTY.withColor(Configuration.配置项.标识符颜色.获取格式代码()).withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, Text.literal(获取键名字符串(结果))))));
             return null;
         });
     }
