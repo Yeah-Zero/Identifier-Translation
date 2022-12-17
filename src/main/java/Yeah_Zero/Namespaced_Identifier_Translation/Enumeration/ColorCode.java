@@ -1,4 +1,4 @@
-package Yeah_Zero.Namespaced_Identifier_Translation;
+package Yeah_Zero.Namespaced_Identifier_Translation.Enumeration;
 
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
