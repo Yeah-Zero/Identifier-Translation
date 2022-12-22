@@ -1,4 +1,4 @@
-package Yeah_Zero.Namespaced_Identifier_Translation.Initializer;
+package Yeah_Zero.Namespaced_Identifier_Translation;
 
 import Yeah_Zero.Namespaced_Identifier_Translation.Configure.Configuration;
 import net.fabricmc.api.ModInitializer;

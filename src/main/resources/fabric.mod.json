@@ -16,7 +16,7 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "Yeah_Zero.Namespaced_Identifier_Translation.Initializer.Main"
+      "Yeah_Zero.Namespaced_Identifier_Translation.Main"
     ]
   },
   "mixins": [

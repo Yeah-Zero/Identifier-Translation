@@ -1,17 +1,14 @@
 package Yeah_Zero.Namespaced_Identifier_Translation.Mixin;
 
-import Yeah_Zero.Namespaced_Identifier_Translation.Configure.Configuration;
+import Yeah_Zero.Namespaced_Identifier_Translation.Translator;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.command.argument.RegistryEntryPredicateArgumentType;
 import net.minecraft.command.argument.RegistryPredicateArgumentType;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.server.command.LocateCommand;
 import net.minecraft.server.command.ServerCommandSource;
-import net.minecraft.text.HoverEvent;
-import net.minecraft.text.Style;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableTextContent;
-import net.minecraft.util.Formatting;
 import net.minecraft.util.math.BlockPos;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -23,7 +20,6 @@ import java.time.Duration;
 
 @Mixin(LocateCommand.class)
 public class LocateCommandMixin {
-    private static String 前缀;
     private static Text 标识符翻译;
 
     private static String 获取键名字符串(Pair<BlockPos, ? extends RegistryEntry<?>> 结果) {
@@ -34,23 +30,19 @@ public class LocateCommandMixin {
 
     @Inject(method = "sendCoordinates(Lnet/minecraft/server/command/ServerCommandSource;Lnet/minecraft/command/argument/RegistryEntryPredicateArgumentType$EntryPredicate;Lnet/minecraft/util/math/BlockPos;Lcom/mojang/datafixers/util/Pair;Ljava/lang/String;ZLjava/time/Duration;)I", at = @At("HEAD"))
     private static void 获取谓词(ServerCommandSource 来源, RegistryEntryPredicateArgumentType.EntryPredicate<?> 谓词, BlockPos 当前坐标, Pair<BlockPos, ? extends RegistryEntry<?>> 结果, String 成功消息, boolean 包括Y坐标, Duration 用时, CallbackInfoReturnable<Integer> 可返回回调信息) {
-        谓词.getEntry().map((条目) -> {
-            标识符翻译 = Text.translatable(成功消息.split("\\.")[2] + "." + 谓词.asString().replace(":", ".")).setStyle(Style.EMPTY.withColor(Configuration.配置项.标识符颜色.获取格式代码()).withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, Text.literal(谓词.asString()))));
-            return null;
+        标识符翻译 = 谓词.getEntry().map((条目) -> {
+            return Translator.翻译(成功消息.split("\\.")[2], 谓词.asString());
         }, (标签) -> {
-            标识符翻译 = Text.translatable("%s (%s)", Text.translatable(谓词.asString()).setStyle(Style.EMPTY.withColor(Configuration.配置项.标签颜色.获取格式代码()).withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, Text.literal(谓词.asString())))), Text.translatable(成功消息.split("\\.")[2] + "." + 获取键名字符串(结果).replace(":", ".")).setStyle(Style.EMPTY.withColor(Configuration.配置项.标识符颜色.获取格式代码()).withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, Text.literal(获取键名字符串(结果))))));
-            return null;
+            return Translator.翻译(成功消息.split("\\.")[2], 谓词.asString(), 获取键名字符串(结果));
         });
     }
 
     @Inject(method = "sendCoordinates(Lnet/minecraft/server/command/ServerCommandSource;Lnet/minecraft/command/argument/RegistryPredicateArgumentType$RegistryPredicate;Lnet/minecraft/util/math/BlockPos;Lcom/mojang/datafixers/util/Pair;Ljava/lang/String;ZLjava/time/Duration;)I", at = @At("HEAD"))
     private static void 获取结构(ServerCommandSource 来源, RegistryPredicateArgumentType.RegistryPredicate<?> 结构, BlockPos 当前坐标, Pair<BlockPos, ? extends RegistryEntry<?>> 结果, String 成功消息, boolean 包括Y坐标, Duration 用时, CallbackInfoReturnable<Integer> 可返回回调信息) {
-        结构.getKey().map((键名) -> {
-            标识符翻译 = Text.translatable(成功消息.split("\\.")[2] + "." + 键名.getValue().toString().replace(":", ".")).setStyle(Style.EMPTY.withColor(Formatting.AQUA).withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, Text.literal(键名.getValue().toString()))));
-            return null;
+        标识符翻译 = 结构.getKey().map((键名) -> {
+            return Translator.翻译(成功消息.split("\\.")[2], 键名.getValue().toString());
         }, (键名) -> {
-            标识符翻译 = Text.translatable("%s (%s)", Text.translatable(键名.id().toString()).setStyle(Style.EMPTY.withColor(Configuration.配置项.标签颜色.获取格式代码()).withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, Text.literal(键名.id().toString())))), Text.translatable(成功消息.split("\\.")[2] + "." + 获取键名字符串(结果).replace(":", ".")).setStyle(Style.EMPTY.withColor(Configuration.配置项.标识符颜色.获取格式代码()).withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, Text.literal(获取键名字符串(结果))))));
-            return null;
+            return Translator.翻译(成功消息.split("\\.")[2], "#" + 键名.id().toString(), 获取键名字符串(结果));
         });
     }
 
