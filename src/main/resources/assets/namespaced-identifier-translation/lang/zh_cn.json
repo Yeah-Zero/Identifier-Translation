@@ -16,7 +16,12 @@
   "formatting_code.light_purple": "粉红色",
   "formatting_code.yellow": "黄色",
   "formatting_code.white": "白色",
-  "namespaced_identifier.unregistered": "[未注册]",
+  "[unregistered]": "[未注册]",
+  "namespaced-identifier-translation.configure.warning": "配置文件无效，恢复为默认配置。",
+  "namespaced-identifier-translation.configure.title": "命名空间标识符翻译配置屏幕",
+  "namespaced-identifier-translation.configure.general": "常规",
+  "namespaced-identifier-translation.configure.general.tag_color": "标签颜色",
+  "namespaced-identifier-translation.configure.general.identifier_color": "标识符颜色",
   "modmenu.mcmod": "MC百科",
   "modmenu.descriptionTranslation.namespaced-identifier-translation": "",
   "modmenu.summaryTranslation.namespaced-identifier-translation": ""

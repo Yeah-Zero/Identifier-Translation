@@ -22,18 +22,12 @@ import java.time.Duration;
 public class LocateCommandMixin {
     private static Text 标识符翻译;
 
-    private static String 获取键名字符串(Pair<BlockPos, ? extends RegistryEntry<?>> 结果) {
-        return 结果.getSecond().getKey().map((键名) -> {
-            return 键名.getValue().toString();
-        }).orElse(Text.translatable("namespaced_identifier.unregistered").getString());
-    }
-
     @Inject(method = "sendCoordinates(Lnet/minecraft/server/command/ServerCommandSource;Lnet/minecraft/command/argument/RegistryEntryPredicateArgumentType$EntryPredicate;Lnet/minecraft/util/math/BlockPos;Lcom/mojang/datafixers/util/Pair;Ljava/lang/String;ZLjava/time/Duration;)I", at = @At("HEAD"))
     private static void 获取谓词(ServerCommandSource 来源, RegistryEntryPredicateArgumentType.EntryPredicate<?> 谓词, BlockPos 当前坐标, Pair<BlockPos, ? extends RegistryEntry<?>> 结果, String 成功消息, boolean 包括Y坐标, Duration 用时, CallbackInfoReturnable<Integer> 可返回回调信息) {
         标识符翻译 = 谓词.getEntry().map((条目) -> {
             return Translator.翻译(成功消息.split("\\.")[2], 谓词.asString());
         }, (标签) -> {
-            return Translator.翻译(成功消息.split("\\.")[2], 谓词.asString(), 获取键名字符串(结果));
+            return Translator.翻译(成功消息.split("\\.")[2], 谓词.asString(), Translator.获取键名字符串(结果));
         });
     }
 
@@ -42,7 +36,7 @@ public class LocateCommandMixin {
         标识符翻译 = 结构.getKey().map((键名) -> {
             return Translator.翻译(成功消息.split("\\.")[2], 键名.getValue().toString());
         }, (键名) -> {
-            return Translator.翻译(成功消息.split("\\.")[2], "#" + 键名.id().toString(), 获取键名字符串(结果));
+            return Translator.翻译(成功消息.split("\\.")[2], "#" + 键名.id().toString(), Translator.获取键名字符串(结果));
         });
     }
 

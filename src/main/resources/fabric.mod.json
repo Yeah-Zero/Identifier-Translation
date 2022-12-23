@@ -17,6 +17,9 @@
   "entrypoints": {
     "main": [
       "Yeah_Zero.Namespaced_Identifier_Translation.Main"
+    ],
+    "modmenu": [
+      "Yeah_Zero.Namespaced_Identifier_Translation.Configure.ScreenAPI"
     ]
   },
   "mixins": [
