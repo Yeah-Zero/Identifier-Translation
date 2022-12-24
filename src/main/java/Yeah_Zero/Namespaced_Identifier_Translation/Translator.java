@@ -15,17 +15,27 @@ public class Translator {
         }).orElse(Text.translatable("[unregistered]").getString());
     }
 
+    public static Text 翻译(String 标签) {
+        return Text.translatable("tag." + 标签.substring(1).replace(":", ".")).setStyle(Style.EMPTY.withColor(Configuration.配置项.标签颜色.获取格式代码()).withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, Text.literal(标签))));
+    }
+
     public static Text 翻译(String 类型, String 标识符) {
-        if (类型.equals("poi")) {
-            return Text.translatable(Text.translatable(类型 + "." + 标识符.replace(":", ".")).getString()).setStyle(Style.EMPTY.withColor(Configuration.配置项.标识符颜色.获取格式代码()).withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, Text.literal(标识符))));
+        if (标识符.startsWith("#")) {
+            return Translator.翻译("tag", 标识符);
+        } else {
+            if (类型.equals("poi")) {
+                return Text.translatable(Text.translatable(类型 + "." + 标识符.replace(":", ".")).getString()).setStyle(Style.EMPTY.withColor(Configuration.配置项.标识符颜色.获取格式代码()).withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, Text.literal(标识符))));
+            } else {
+                return Text.translatable(类型 + "." + 标识符.replace(":", ".")).setStyle(Style.EMPTY.withColor(类型.equals("tag") ? Configuration.配置项.标签颜色.获取格式代码() : Configuration.配置项.标识符颜色.获取格式代码()).withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, Text.literal(标识符))));
+            }
         }
-        return Text.translatable(类型 + "." + 标识符.replace(":", ".")).setStyle(Style.EMPTY.withColor(Configuration.配置项.标识符颜色.获取格式代码()).withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, Text.literal(标识符))));
     }
 
     public static Text 翻译(String 类型, String 标签, String 标识符) {
         if (类型.equals("poi")) {
             return Text.translatable("%s (%s)", Text.translatable(标签).setStyle(Style.EMPTY.withColor(Configuration.配置项.标签颜色.获取格式代码()).withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, Text.literal(标签)))), Text.translatable(Text.translatable(类型 + "." + 标识符.replace(":", ".")).getString()).setStyle(Style.EMPTY.withColor(Configuration.配置项.标识符颜色.获取格式代码()).withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, Text.literal(标识符)))));
+        } else {
+            return Text.translatable("%s (%s)", Text.translatable(标签).setStyle(Style.EMPTY.withColor(Configuration.配置项.标签颜色.获取格式代码()).withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, Text.literal(标签)))), Text.translatable(类型 + "." + 标识符.replace(":", ".")).setStyle(Style.EMPTY.withColor(Configuration.配置项.标识符颜色.获取格式代码()).withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, Text.literal(标识符)))));
         }
-        return Text.translatable("%s (%s)", Text.translatable(标签).setStyle(Style.EMPTY.withColor(Configuration.配置项.标签颜色.获取格式代码()).withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, Text.literal(标签)))), Text.translatable(类型 + "." + 标识符.replace(":", ".")).setStyle(Style.EMPTY.withColor(Configuration.配置项.标识符颜色.获取格式代码()).withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, Text.literal(标识符)))));
     }
 }
