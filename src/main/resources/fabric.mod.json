@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "id": "namespaced-identifier-translation",
+  "id": "identifier-translation",
   "version": "${version}",
-  "name": "命名空间标识符翻译",
+  "name": "标识符翻译",
   "description": "",
   "authors": [
     "§e烨§b凌"
