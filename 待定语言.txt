@@ -1,0 +1,19 @@
+Čeština：cs_cz
+Deutsch：de_de
+Ελληνικά：el_gr
+English：en_au en_ca en_gb en_nz en_us enws 
+Español：es_ar es_cl es_ec es_es es_mx es_uy es_ve
+Français：fr_ca fr_fr
+Magyar：hu_hu
+Italiano：it_it
+日本語：ja_jp
+한국어：ko_kr
+文言：lzh
+Nederlands：nl_nl
+Polski：pl_pl
+Português：pt_br pt_pt
+Русский：ru_ru
+ไทย：th_th
+Türkçe：tr_tr
+Українська：uk_ua
+中文：zh_cn zh_hk zh_tw
