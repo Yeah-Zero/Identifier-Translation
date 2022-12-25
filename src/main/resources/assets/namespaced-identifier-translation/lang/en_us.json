@@ -35,14 +35,14 @@
   "formatting_code.light_purple": "Purple",
   "formatting_code.yellow": "Yellow",
   "formatting_code.white": "White",
-  "namespaced-identifier-translation.configure.warning": "The configuration file is invalid, restore to the default configuration.",
-  "namespaced-identifier-translation.configure.title": "Namespaced Identifier Translation Configure Screen",
-  "namespaced-identifier-translation.configure.general": "General",
-  "namespaced-identifier-translation.configure.general.tag_color": "Tag Color",
-  "namespaced-identifier-translation.configure.general.identifier_color": "Identifier Color",
+  "identifier-translation.configure.warning": "The configuration file is invalid, restore to the default configuration.",
+  "identifier-translation.configure.title": "Namespaced Identifier Translation Configure Screen",
+  "identifier-translation.configure.general": "General",
+  "identifier-translation.configure.general.tag_color": "Tag Color",
+  "identifier-translation.configure.general.identifier_color": "Identifier Color",
   "modmenu.mcmod": "MCmod",
   "modmenu.curseforge": "CurseForge",
   "modmenu.modrinth": "Modrinth",
-  "modmenu.descriptionTranslation.namespaced-identifier-translation": "",
-  "modmenu.summaryTranslation.namespaced-identifier-translation": ""
+  "modmenu.descriptionTranslation.identifier-translation": "",
+  "modmenu.summaryTranslation.identifier-translation": ""
 }
