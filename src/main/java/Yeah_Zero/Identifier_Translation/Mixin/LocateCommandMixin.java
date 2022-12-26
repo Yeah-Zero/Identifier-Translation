@@ -1,6 +1,6 @@
-package Yeah_Zero.Namespaced_Identifier_Translation.Mixin;
+package Yeah_Zero.Identifier_Translation.Mixin;
 
-import Yeah_Zero.Namespaced_Identifier_Translation.Translator;
+import Yeah_Zero.Identifier_Translation.Translator;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import com.mojang.brigadier.exceptions.DynamicCommandExceptionType;
 import com.mojang.datafixers.util.Pair;

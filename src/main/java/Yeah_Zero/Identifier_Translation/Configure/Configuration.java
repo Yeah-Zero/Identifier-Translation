@@ -1,4 +1,4 @@
-package Yeah_Zero.Namespaced_Identifier_Translation.Configure;
+package Yeah_Zero.Identifier_Translation.Configure;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
