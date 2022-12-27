@@ -15,7 +15,7 @@ public class ScreenAPI implements ModMenuApi {
         return (上级界面) -> {
             try {
                 ConfigBuilder 构建器 = ConfigBuilder.create().setParentScreen(上级界面).setTitle(Text.translatable("identifier-translation.configure.title")).setDoesConfirmSave(false).setSavingRunnable(Configuration::保存).setDefaultBackgroundTexture(new Identifier("minecraft", "textures/block/white_concrete.png"));
-                构建器.getOrCreateCategory(Text.empty()).addEntry(构建器.entryBuilder().startBooleanToggle(Text.translatable("identifier-translation.configure.biome_attach"), Configuration.配置项.附加生物群系名称).setTooltip(Text.translatable("identifier-translation.configure.biome_attach.description")).setDefaultValue(true).setSaveConsumer((新值) -> {
+                构建器.getOrCreateCategory(Text.empty()).addEntry(构建器.entryBuilder().startBooleanToggle(Text.translatable("identifier-translation.configure.biome_attach"), Configuration.配置项.附加生物群系名称).setTooltip(Text.translatable("identifier-translation.configure.biome_attach.description_1"), Text.translatable("identifier-translation.configure.biome_attach.description_2")).setDefaultValue(true).setSaveConsumer((新值) -> {
                     Configuration.配置项.附加生物群系名称 = 新值;
                 }).build());
                 SubCategoryBuilder 标签样式 = 构建器.entryBuilder().startSubCategory(Text.translatable("identifier-translation.configure.tag_style")).setExpanded(true);

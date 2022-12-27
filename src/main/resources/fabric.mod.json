@@ -34,6 +34,7 @@
   "custom": {
     "modmenu": {
       "links": {
+        "modmenu.mcbbs": "",
         "modmenu.mcmod": "",
         "modmenu.curseforge": "",
         "modmenu.modrinth": ""
