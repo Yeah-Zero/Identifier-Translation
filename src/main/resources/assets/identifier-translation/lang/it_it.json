@@ -15,5 +15,11 @@
   "formatting_code.red": "Rosso",
   "formatting_code.light_purple": "Viola chiaro",
   "formatting_code.yellow": "Giallo",
-  "formatting_code.white": "Bianco"
+  "formatting_code.white": "Bianco",
+  "formatting_code.obfuscated": "Offuscato",
+  "formatting_code.bold": "Grassetto",
+  "formatting_code.strikethrough": "Barrato",
+  "formatting_code.underline": "Sottolineato",
+  "formatting_code.italic": "Corsivo",
+  "formatting_code.reset": "Sottolineato"
 }

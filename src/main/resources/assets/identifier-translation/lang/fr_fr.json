@@ -15,5 +15,11 @@
   "formatting_code.red": "Rouge",
   "formatting_code.light_purple": "Magenta",
   "formatting_code.yellow": "Jaune",
-  "formatting_code.white": "Blanc"
+  "formatting_code.white": "Blanc",
+  "formatting_code.obfuscated": "Aléatoire",
+  "formatting_code.bold": "Gras",
+  "formatting_code.strikethrough": "Barré",
+  "formatting_code.underline": "Souligné",
+  "formatting_code.italic": "Italique",
+  "formatting_code.reset": "Réinitialisation"
 }

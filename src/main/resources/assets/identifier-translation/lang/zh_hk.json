@@ -15,5 +15,11 @@
   "formatting_code.red": "紅色",
   "formatting_code.light_purple": "粉紅色",
   "formatting_code.yellow": "黃色",
-  "formatting_code.white": "白色"
+  "formatting_code.white": "白色",
+  "formatting_code.obfuscated": "隨機字元",
+  "formatting_code.bold": "粗體",
+  "formatting_code.strikethrough": "刪除線",
+  "formatting_code.underline": "下劃線",
+  "formatting_code.italic": "斜體",
+  "formatting_code.reset": "重置文字樣式"
 }

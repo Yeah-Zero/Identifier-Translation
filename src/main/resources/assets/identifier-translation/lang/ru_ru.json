@@ -15,5 +15,11 @@
   "formatting_code.red": "Красный",
   "formatting_code.light_purple": "Фиолетовый",
   "formatting_code.yellow": "Жёлтый",
-  "formatting_code.white": "Белый"
+  "formatting_code.white": "Белый",
+  "formatting_code.obfuscated": "Запутанный",
+  "formatting_code.bold": "Жирный",
+  "formatting_code.strikethrough": "Зачёркнутый",
+  "formatting_code.underline": "Подчёркнутый",
+  "formatting_code.italic": "Курсив",
+  "formatting_code.reset": "Сброс"
 }

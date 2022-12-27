@@ -15,5 +15,11 @@
   "formatting_code.red": "Czerwony",
   "formatting_code.light_purple": "Jasnofioletowy",
   "formatting_code.yellow": "Żółty",
-  "formatting_code.white": "Biały"
+  "formatting_code.white": "Biały",
+  "formatting_code.obfuscated": "Efekt Matrixa",
+  "formatting_code.bold": "Pogrubienie",
+  "formatting_code.strikethrough": "Przekreślenie",
+  "formatting_code.underline": "Podkreślenie",
+  "formatting_code.italic": "Pochylenie",
+  "formatting_code.reset": "Reset"
 }

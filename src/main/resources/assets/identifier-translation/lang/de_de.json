@@ -15,5 +15,10 @@
   "formatting_code.red": "Rot",
   "formatting_code.light_purple": "Hellviolett",
   "formatting_code.yellow": "Gelb",
-  "formatting_code.white": "Weiß"
+  "formatting_code.white": "Weiß",
+  "formatting_code.obfuscated": "Verschleiert",
+  "formatting_code.bold": "Fett",
+  "formatting_code.strikethrough": "Durchgestrichen",
+  "formatting_code.underline": "Unterstrichen",
+  "formatting_code.italic": "Kursiv"
 }
