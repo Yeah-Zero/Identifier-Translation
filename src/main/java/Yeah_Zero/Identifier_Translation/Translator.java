@@ -47,17 +47,16 @@ public class Translator {
             if (类型.equals("poi")) {
                 标识符翻译键名 = Text.translatable(标识符翻译键名).getString();
             }
-            String 标识符翻译;
-            if ((标识符.contains("mineshaft") && !标识符.equals("mineshaft")) || 标识符.contains("ocean_ruin") || (标识符.contains("ruined_portal") && !标识符.equals("ruined_portal")) || (标识符.contains("shipwreck") && !标识符.equals("shipwreck")) || 标识符.contains("village")) {
-                标识符翻译 = Text.translatable("%s - %s", Text.translatable(标识符翻译键名), 生物群系名称附加(标识符翻译键名)).getString();
-            } else {
-                标识符翻译 = Text.translatable(标识符翻译键名).getString();
-            }
             if (类型.equals("tag")) {
                 return Text.literal("#" + 标识符).setStyle(Configuration.配置项.标签样式.生成样式().withHoverEvent(Configuration.配置项.标签样式.显示悬停文本 ? new HoverEvent(HoverEvent.Action.SHOW_TEXT, Text.translatable(标识符翻译键名)) : null));
             } else {
+                String 标识符翻译;
+                if (Configuration.配置项.附加生物群系名称 && ((标识符.contains("mineshaft") && !标识符.equals("mineshaft")) || 标识符.contains("ocean_ruin") || (标识符.contains("ruined_portal") && !标识符.equals("ruined_portal")) || (标识符.contains("shipwreck") && !标识符.equals("shipwreck")) || 标识符.contains("village"))) {
+                    标识符翻译 = Text.translatable("%s - %s", Text.translatable(标识符翻译键名), 生物群系名称附加(标识符翻译键名)).getString();
+                } else {
+                    标识符翻译 = Text.translatable(标识符翻译键名).getString();
+                }
                 return Text.literal(标识符翻译).setStyle(Configuration.配置项.标识符样式.生成样式().withHoverEvent(Configuration.配置项.标识符样式.显示悬停文本 ? new HoverEvent(HoverEvent.Action.SHOW_TEXT, Text.literal(标识符)) : null));
-
             }
         }
     }
@@ -69,7 +68,7 @@ public class Translator {
             标识符翻译键名 = Text.translatable(标识符翻译键名).getString();
         }
         String 标识符翻译;
-        if ((标识符.contains("mineshaft") && !标识符.equals("mineshaft")) || 标识符.contains("ocean_ruin") || (标识符.contains("ruined_portal") && !标识符.equals("ruined_portal")) || (标识符.contains("shipwreck") && !标识符.equals("shipwreck")) || 标识符.contains("village")) {
+        if (Configuration.配置项.附加生物群系名称 && ((标识符.contains("mineshaft") && !标识符.equals("mineshaft")) || 标识符.contains("ocean_ruin") || (标识符.contains("ruined_portal") && !标识符.equals("ruined_portal")) || (标识符.contains("shipwreck") && !标识符.equals("shipwreck")) || 标识符.contains("village"))) {
             标识符翻译 = Text.translatable("%s - %s", Text.translatable(标识符翻译键名), 生物群系名称附加(标识符翻译键名)).getString();
         } else {
             标识符翻译 = Text.translatable(标识符翻译键名).getString();

@@ -43,6 +43,8 @@
   "formatting_code.reset": "Reset",
   "identifier-translation.configure.warning": "The configuration file is invalid, restore to the default configuration.",
   "identifier-translation.configure.title": "Namespaced Identifier Translation Configure Screen",
+  "identifier-translation.configure.biome_attach": "Attach Biome's Name",
+  "identifier-translation.configure.biome_attach.description": "",
   "identifier-translation.configure.tag_style": "Tag Style",
   "identifier-translation.configure.tag_style.color": "Tag Color",
   "identifier-translation.configure.tag_style.hover": "Show Hover Text",

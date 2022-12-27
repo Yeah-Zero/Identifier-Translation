@@ -4,7 +4,9 @@
   "package": "Yeah_Zero.Identifier_Translation.Mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "LocateCommandMixin"
+    "FillBiomeCommandMixin",
+    "LocateCommandMixin",
+    "PlaceCommandMixin"
   ],
   "injectors": {
     "defaultRequire": 1
