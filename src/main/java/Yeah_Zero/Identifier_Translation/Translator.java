@@ -53,7 +53,12 @@ public class Translator {
             } else {
                 标识符翻译 = Text.translatable(标识符翻译键名).getString();
             }
-            return Text.literal(标识符翻译).setStyle(Configuration.配置项.标识符样式.生成样式().withHoverEvent(Configuration.配置项.标识符样式.显示悬停文本 ? new HoverEvent(HoverEvent.Action.SHOW_TEXT, Text.literal(标识符)) : null));
+            if (类型.equals("tag")) {
+                return Text.literal("#" + 标识符).setStyle(Configuration.配置项.标签样式.生成样式().withHoverEvent(Configuration.配置项.标签样式.显示悬停文本 ? new HoverEvent(HoverEvent.Action.SHOW_TEXT, Text.translatable(标识符翻译键名)) : null));
+            } else {
+                return Text.literal(标识符翻译).setStyle(Configuration.配置项.标识符样式.生成样式().withHoverEvent(Configuration.配置项.标识符样式.显示悬停文本 ? new HoverEvent(HoverEvent.Action.SHOW_TEXT, Text.literal(标识符)) : null));
+
+            }
         }
     }
 
