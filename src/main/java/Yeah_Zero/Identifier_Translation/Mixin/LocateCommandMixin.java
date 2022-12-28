@@ -2,16 +2,25 @@ package Yeah_Zero.Identifier_Translation.Mixin;
 
 import Yeah_Zero.Identifier_Translation.Configure.Configuration;
 import Yeah_Zero.Identifier_Translation.Translator;
+import com.mojang.brigadier.arguments.ArgumentType;
+import com.mojang.brigadier.builder.RequiredArgumentBuilder;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import com.mojang.brigadier.exceptions.DynamicCommandExceptionType;
+import com.mojang.brigadier.suggestion.SuggestionProvider;
 import com.mojang.datafixers.util.Pair;
+import net.minecraft.command.CommandSource;
 import net.minecraft.command.argument.RegistryEntryPredicateArgumentType;
 import net.minecraft.command.argument.RegistryPredicateArgumentType;
+import net.minecraft.command.suggestion.SuggestionProviders;
+import net.minecraft.registry.Registries;
 import net.minecraft.registry.entry.RegistryEntry;
+import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.LocateCommand;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableTextContent;
+import net.minecraft.util.Identifier;
+import net.minecraft.util.Util;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.gen.structure.Structure;
 import org.spongepowered.asm.mixin.Final;
@@ -29,11 +38,39 @@ import java.util.function.Supplier;
 
 @Mixin(LocateCommand.class)
 public class LocateCommandMixin {
+    private static final SuggestionProvider<ServerCommandSource> 结构建议提供者 = SuggestionProviders.register(new Identifier("structure"), (命令内容, 构建器) -> {
+        return CommandSource.suggestFromIdentifier(Registries.STRUCTURE_TYPE.stream(), 构建器, Registries.STRUCTURE_TYPE::getId, (结构类型) -> {
+            return Text.translatable(Util.createTranslationKey("structure", Registries.STRUCTURE_TYPE.getId(结构类型)));
+        });
+    });
+    //    private static final SuggestionProvider<ServerCommandSource> 生物群系建议提供者 = SuggestionProviders.register(new Identifier("structure"), (命令内容, 构建器) -> {
+//        return null;
+//    });
+    private static final SuggestionProvider<ServerCommandSource> 兴趣点建议提供者 = SuggestionProviders.register(new Identifier("poi"), (命令内容, 构建器) -> {
+        return CommandSource.suggestFromIdentifier(Registries.POINT_OF_INTEREST_TYPE.stream(), 构建器, Registries.POINT_OF_INTEREST_TYPE::getId, (兴趣点类型) -> {
+            return Text.translatable(Text.translatable(Util.createTranslationKey("poi", Registries.POINT_OF_INTEREST_TYPE.getId(兴趣点类型))).getString());
+        });
+    });
     private static String 谓词字符串提取;
     private static Text 翻译;
     @Final
     @Shadow
     private static DynamicCommandExceptionType STRUCTURE_INVALID_EXCEPTION;
+
+    @Redirect(method = "register(Lcom/mojang/brigadier/CommandDispatcher;Lnet/minecraft/command/CommandRegistryAccess;)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/command/CommandManager;argument(Ljava/lang/String;Lcom/mojang/brigadier/arguments/ArgumentType;)Lcom/mojang/brigadier/builder/RequiredArgumentBuilder;", ordinal = 0))
+    private static <T> RequiredArgumentBuilder<ServerCommandSource, T> 提供结构建议(String 名称, ArgumentType<T> 类型) {
+        return CommandManager.argument(名称, 类型).suggests(结构建议提供者);
+    }
+
+//    @Redirect(method = "register(Lcom/mojang/brigadier/CommandDispatcher;Lnet/minecraft/command/CommandRegistryAccess;)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/command/CommandManager;argument(Ljava/lang/String;Lcom/mojang/brigadier/arguments/ArgumentType;)Lcom/mojang/brigadier/builder/RequiredArgumentBuilder;", ordinal = 1))
+//    private static <T> RequiredArgumentBuilder<ServerCommandSource, T> 提供生物群系建议(String 名称, ArgumentType<T> 类型) {
+//        return CommandManager.argument(名称, 类型).suggests(生物群系建议提供者);
+//    }
+
+    @Redirect(method = "register(Lcom/mojang/brigadier/CommandDispatcher;Lnet/minecraft/command/CommandRegistryAccess;)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/command/CommandManager;argument(Ljava/lang/String;Lcom/mojang/brigadier/arguments/ArgumentType;)Lcom/mojang/brigadier/builder/RequiredArgumentBuilder;", ordinal = 2))
+    private static <T> RequiredArgumentBuilder<ServerCommandSource, T> 提供兴趣点建议(String 名称, ArgumentType<T> 类型) {
+        return CommandManager.argument(名称, 类型).suggests(兴趣点建议提供者);
+    }
 
     @Inject(method = "executeLocateStructure(Lnet/minecraft/server/command/ServerCommandSource;Lnet/minecraft/command/argument/RegistryPredicateArgumentType$RegistryPredicate;)I", at = @At("HEAD"))
     private static void 谓词获取(ServerCommandSource 来源, RegistryPredicateArgumentType.RegistryPredicate<Structure> 谓词, CallbackInfoReturnable<Integer> 可返回回调信息) {

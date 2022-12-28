@@ -5,6 +5,8 @@ import com.mojang.datafixers.util.Pair;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.text.HoverEvent;
 import net.minecraft.text.Text;
+import net.minecraft.util.Identifier;
+import net.minecraft.util.Util;
 import net.minecraft.util.math.BlockPos;
 
 public class Translator {
@@ -31,7 +33,7 @@ public class Translator {
         if (标识符.startsWith("#")) {
             return 翻译("tag", 标识符.substring(1));
         } else {
-            String 标识符翻译键名 = 类型 + "." + 标识符.replace(":", ".");
+            String 标识符翻译键名 = Util.createTranslationKey(类型, new Identifier(标识符));
             if (类型.equals("poi")) {
                 标识符翻译键名 = Text.translatable(标识符翻译键名).getString();
             }
@@ -50,8 +52,8 @@ public class Translator {
     }
 
     public static Text 翻译(String 类型, String 标签, String 标识符) {
-        String 标签描述键名 = "tag." + 标签.substring(1).replace(":", ".");
-        String 标识符翻译键名 = 类型 + "." + 标识符.replace(":", ".");
+        String 标签描述键名 = Util.createTranslationKey("tag", new Identifier(标签.substring(1)));
+        String 标识符翻译键名 = Util.createTranslationKey(类型, new Identifier(标识符));
         if (类型.equals("poi")) {
             标识符翻译键名 = Text.translatable(标识符翻译键名).getString();
         }
