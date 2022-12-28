@@ -20,8 +20,7 @@ public class Translator {
             case "beached" -> Text.translatable("biome.minecraft.beach");
             case "cold", "warm" -> Text.translatable("biome.minecraft." + 分割[分割.length - 1] + "_ocean");
             case "mesa" -> Text.translatable("biome.minecraft.badlands");
-            case "mountain" ->
-                    Text.translatable("%s %s %s %s %s %s %s %s %s", Text.translatable("biome.minecraft.badlands"), Text.translatable("biome.minecraft.eroded_badlands"), Text.translatable("biome.minecraft.savanna_plateau"), Text.translatable("biome.minecraft.stony_shore"), Text.translatable("biome.minecraft.windswept_forest"), Text.translatable("biome.minecraft.windswept_gravelly_hills"), Text.translatable("biome.minecraft.windswept_hills"), Text.translatable("biome.minecraft.windswept_savanna"), Text.translatable("biome.minecraft.wooded_badlands"));
+            case "mountain" -> Text.translatable("biomes.minecraft.mountains");
             case "nether" -> Text.translatable("dimension.minecraft.nether");
             case "snowy" -> Text.translatable("biome.minecraft.snowy_plains");
             default -> Text.translatable("biome.minecraft." + 分割[分割.length - 1]);
