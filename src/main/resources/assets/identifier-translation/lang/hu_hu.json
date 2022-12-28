@@ -1,3 +1,11 @@
 {
-  "poi.minecraft.home": "Ágy"
+  "dimension.minecraft.nether": "Az Alvilág",
+  "poi.minecraft.home": "Ágy",
+  "structure.minecraft.desert_pyramid": "Sivatagi templom",
+  "structure.minecraft.stronghold": "Erődítmény",
+  "structure.minecraft.village_desert": "NJK Falu",
+  "structure.minecraft.village_plains": "NJK Falu",
+  "structure.minecraft.village_savanna": "NJK Falu",
+  "structure.minecraft.village_snowy": "NJK Falu",
+  "structure.minecraft.village_taiga": "NJK Falu"
 }

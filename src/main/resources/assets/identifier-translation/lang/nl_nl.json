@@ -1,3 +1,18 @@
 {
-  "poi.minecraft.home": "Bed"
+  "dimension.minecraft.nether": "De Nether",
+  "poi.minecraft.home": "Bed",
+  "structure.minecraft.desert_pyramid": "Woestijnpiramide",
+  "structure.minecraft.end_city": "Endstad",
+  "structure.minecraft.fortress": "Netherfort",
+  "structure.minecraft.jungle_pyramid": "Oerwoudtempel",
+  "structure.minecraft.mansion": "Boslandhuis",
+  "structure.minecraft.mineshaft": "Mijnschacht",
+  "structure.minecraft.mineshaft_mesa": "Mijnschacht",
+  "structure.minecraft.stronghold": "Burcht",
+  "structure.minecraft.swamp_hut": "Gegenereerde structuren",
+  "structure.minecraft.village_desert": "Dorp",
+  "structure.minecraft.village_plains": "Dorp",
+  "structure.minecraft.village_savanna": "Dorp",
+  "structure.minecraft.village_snowy": "Dorp",
+  "structure.minecraft.village_taiga": "Dorp"
 }

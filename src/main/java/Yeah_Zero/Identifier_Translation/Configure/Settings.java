@@ -6,7 +6,6 @@ import net.minecraft.text.Style;
 public class Settings {
     public StyleSetting 标签样式 = new StyleSetting(ColorCode.金色);
     public StyleSetting 标识符样式 = new StyleSetting(ColorCode.天蓝色);
-    public boolean 附加生物群系名称 = true;
 
     public class StyleSetting {
         public ColorCode 颜色;

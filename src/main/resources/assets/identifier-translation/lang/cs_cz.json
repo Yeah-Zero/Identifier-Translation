@@ -1,3 +1,8 @@
 {
-  "poi.minecraft.home": "Postel"
+  "dimension.minecraft.nether": "Nether",
+  "poi.minecraft.home": "Postel",
+  "structure.minecraft.desert_pyramid": "Pouštní chrám",
+  "structure.minecraft.jungle_pyramid": "Chrám v džungli",
+  "structure.minecraft.pillager_outpost": "Základna nájezdníků",
+  "structure.minecraft.stronghold": "Pevnost"
 }
