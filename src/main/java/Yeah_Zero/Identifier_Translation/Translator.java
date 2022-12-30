@@ -23,9 +23,12 @@ import net.minecraft.util.math.BlockPos;
 import java.util.Locale;
 
 public class Translator {
-    public static final SuggestionProvider<ServerCommandSource> 结构建议提供者 = Translator.建议提供("structure", RegistryKeys.STRUCTURE);
-    public static final SuggestionProvider<ServerCommandSource> 生物群系建议提供者 = Translator.建议提供("biome", RegistryKeys.BIOME);
-    public static final SuggestionProvider<ServerCommandSource> 兴趣点建议提供者 = Translator.建议提供("poi", RegistryKeys.POINT_OF_INTEREST_TYPE);
+    public static final SuggestionProvider<ServerCommandSource> 结构建议提供者 = Translator.建议提供("structure", RegistryKeys.STRUCTURE, CommandSource.SuggestedIdType.ALL);
+    public static final SuggestionProvider<ServerCommandSource> 生物群系建议提供者 = Translator.建议提供("biome", RegistryKeys.BIOME, CommandSource.SuggestedIdType.ALL);
+    public static final SuggestionProvider<ServerCommandSource> 兴趣点建议提供者 = Translator.建议提供("poi", RegistryKeys.POINT_OF_INTEREST_TYPE, CommandSource.SuggestedIdType.ALL);
+    public static final SuggestionProvider<ServerCommandSource> 具体生物群系建议提供者 = Translator.建议提供("specific_biome", RegistryKeys.BIOME, CommandSource.SuggestedIdType.ELEMENTS);
+    public static final SuggestionProvider<ServerCommandSource> 具体结构建议提供者 = Translator.建议提供("specific_structure", RegistryKeys.STRUCTURE, CommandSource.SuggestedIdType.ELEMENTS);
+    public static final SuggestionProvider<ServerCommandSource> 已配置地物建议提供者 = Translator.建议提供("configured_feature", RegistryKeys.CONFIGURED_FEATURE, CommandSource.SuggestedIdType.ELEMENTS);
 
     public static String 获取键名字符串(Pair<BlockPos, ? extends RegistryEntry<?>> 结果) {
         return 结果.getSecond().getKey().map((键名) -> {
@@ -33,19 +36,27 @@ public class Translator {
         }).orElse(Text.translatable("[unregistered]").getString());
     }
 
-    private static <T> SuggestionProvider<ServerCommandSource> 建议提供(String 类型, RegistryKey<Registry<T>> 注册项键) {
+    private static <T> SuggestionProvider<ServerCommandSource> 建议提供(String 类型, RegistryKey<Registry<T>> 注册项键, CommandSource.SuggestedIdType 可建议类型) {
         return SuggestionProviders.register(new Identifier(类型), (命令内容, 建议构建器) -> {
             return 命令内容.getSource().getRegistryManager().getOptional(注册项键).map((注册项) -> {
-                CommandSource.forEachMatching(注册项.streamTags().map(TagKey::id)::iterator, 建议构建器.getRemaining().toLowerCase(Locale.ROOT), "#", (标识符) -> {
-                    return 标识符;
-                }, (标识符) -> {
-                    建议构建器.suggest("#" + 标识符, Text.translatable(Util.createTranslationKey("tag", 标识符)));
-                });
-                CommandSource.forEachMatching(注册项.getIds(), 建议构建器.getRemaining().toLowerCase(Locale.ROOT), (标识符) -> {
-                    return 标识符;
-                }, (标识符) -> {
-                    建议构建器.suggest(标识符.toString(), 翻译(类型, 标识符.toString()).copy().setStyle(Style.EMPTY));
-                });
+                if (可建议类型.canSuggestTags()) {
+                    CommandSource.forEachMatching(注册项.streamTags().map(TagKey::id)::iterator, 建议构建器.getRemaining().toLowerCase(Locale.ROOT), "#", (标识符) -> {
+                        return 标识符;
+                    }, (标识符) -> {
+                        建议构建器.suggest("#" + 标识符, Text.translatable(Util.createTranslationKey("tag", 标识符)));
+                    });
+                }
+                if (可建议类型.canSuggestElements()) {
+                    CommandSource.forEachMatching(注册项.getIds(), 建议构建器.getRemaining().toLowerCase(Locale.ROOT), (标识符) -> {
+                        return 标识符;
+                    }, (标识符) -> {
+                        if (类型.equals("configured_feature")) {
+                            建议构建器.suggest(标识符.toString(), Text.translatable(Util.createTranslationKey("configured_feature", 标识符)));
+                        } else {
+                            建议构建器.suggest(标识符.toString(), 翻译(类型, 标识符.toString()).copy().setStyle(Style.EMPTY));
+                        }
+                    });
+                }
                 return 建议构建器.buildFuture();
             }).orElseGet(() -> {
                 if (命令内容.getSource() instanceof ClientCommandSource) {
@@ -80,6 +91,8 @@ public class Translator {
             }
             if (类型.equals("tag")) {
                 return Text.literal("#" + 标识符字符串).setStyle(Configuration.配置项.标签样式.生成样式().withHoverEvent(Configuration.配置项.标签样式.显示悬停文本 ? new HoverEvent(HoverEvent.Action.SHOW_TEXT, Text.translatable(标识符翻译键名)) : null));
+            } else if (类型.equals("configured_feature")) {
+                return Text.literal(标识符字符串).setStyle(Configuration.配置项.标识符样式.生成样式().withHoverEvent(Configuration.配置项.标识符样式.显示悬停文本 ? new HoverEvent(HoverEvent.Action.SHOW_TEXT, Text.translatable(标识符翻译键名)) : null));
             } else {
                 String 标识符翻译;
                 if ((标识符字符串.contains("mineshaft") && !标识符字符串.equals("minecraft:mineshaft")) || 标识符字符串.contains("ocean_ruin") || (标识符字符串.contains("ruined_portal") && !标识符字符串.equals("minecraft:ruined_portal")) || (标识符字符串.contains("shipwreck") && !标识符字符串.equals("minecraft:shipwreck")) || 标识符字符串.contains("village")) {

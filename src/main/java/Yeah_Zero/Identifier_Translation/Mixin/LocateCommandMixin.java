@@ -39,7 +39,7 @@ public class LocateCommandMixin {
     private static DynamicCommandExceptionType STRUCTURE_INVALID_EXCEPTION;
 
     @Redirect(method = "register(Lcom/mojang/brigadier/CommandDispatcher;Lnet/minecraft/command/CommandRegistryAccess;)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/command/CommandManager;argument(Ljava/lang/String;Lcom/mojang/brigadier/arguments/ArgumentType;)Lcom/mojang/brigadier/builder/RequiredArgumentBuilder;"))
-    private static <T> RequiredArgumentBuilder<ServerCommandSource, T> 提供结构建议(String 名称, ArgumentType<T> 类型) {
+    private static <T> RequiredArgumentBuilder<ServerCommandSource, T> 提供建议(String 名称, ArgumentType<T> 类型) {
         return switch (名称) {
             case "structure" -> CommandManager.argument(名称, 类型).suggests(Translator.结构建议提供者);
             case "biome" -> CommandManager.argument(名称, 类型).suggests(Translator.生物群系建议提供者);
@@ -93,10 +93,10 @@ public class LocateCommandMixin {
         });
     }
 
-    @Redirect(method = "sendCoordinates(Lnet/minecraft/server/command/ServerCommandSource;Lnet/minecraft/util/math/BlockPos;Lcom/mojang/datafixers/util/Pair;Ljava/lang/String;ZLjava/lang/String;Ljava/time/Duration;)I", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/command/ServerCommandSource;sendFeedback(Lnet/minecraft/text/Text;Z)V"))
-    private static void 发送坐标重定向(ServerCommandSource 来源, Text 消息, boolean 广播给管理员) {
-        Object[] 参数列表 = ((TranslatableTextContent) 消息.getContent()).getArgs();
-        参数列表[0] = 翻译;
-        来源.sendFeedback(Text.translatable(((TranslatableTextContent) 消息.getContent()).getKey(), 参数列表), 广播给管理员);
+    @ModifyArg(method = "sendCoordinates(Lnet/minecraft/server/command/ServerCommandSource;Lnet/minecraft/util/math/BlockPos;Lcom/mojang/datafixers/util/Pair;Ljava/lang/String;ZLjava/lang/String;Ljava/time/Duration;)I", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/command/ServerCommandSource;sendFeedback(Lnet/minecraft/text/Text;Z)V"), index = 0)
+    private static Text 反馈消息修改(Text 消息) {
+        Object[] 文本参数列表 = ((TranslatableTextContent) 消息.getContent()).getArgs();
+        文本参数列表[0] = 翻译;
+        return Text.translatable(((TranslatableTextContent) 消息.getContent()).getKey(), 文本参数列表);
     }
 }
