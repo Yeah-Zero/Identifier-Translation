@@ -16,7 +16,7 @@
 
 <p align="center">
 	<a href="./LICENSE">
-		<img src="https://img.shields.io/github/license/Yeah-Zero/Identifier-Translation?label=%E8%AE%B8%E5%8F%AF%E8%AF%81&style=flat-square" /></a>
+		<img src="https://img.shields.io/github/license/Yeah-Zero/Identifier-Translation?label=许可证&style=flat-square" /></a>
 	<img src="https://img.shields.io/github/languages/code-size/Yeah-Zero/Identifier-Translation?label=大小&style=flat-square" />
 	<img src="https://img.shields.io/static/v1?label=加载器&message=Fabric | Quilt&color=brightgreen&style=flat-square" />
 </p>
