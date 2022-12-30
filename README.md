@@ -43,4 +43,6 @@ Fabric Loader（[官网](https://fabricmc.net/) [GitHub](https://github.com/Fabr
 
 生物群系翻译取自游戏内语言文件，地物和结构翻译取自[Minecraft Wiki](https://minecraft.fandom.com/zh/wiki/Minecraft_Wiki)。
 
+涉及命令：`/fillbiome`、`/locate`和`/place`。
+
 配置文件保存在“<游戏目录>\config\标识符翻译.json”。
