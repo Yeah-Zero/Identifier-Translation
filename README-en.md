@@ -11,7 +11,7 @@
 </h1> 
 
 <p align="center">
-	将命令反馈与命令建议中的生物群系、地物和结构显示为对应翻译而非标识符。
+	Make biomes, features and structures in the command feedback and command suggestions display as its corresponding translations instead of identifiers.
 </p>
 
 <p align="center">
