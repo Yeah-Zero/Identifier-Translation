@@ -3,7 +3,7 @@
   "id": "identifier-translation",
   "version": "${version}",
   "name": "标识符翻译",
-  "description": "",
+  "description": "将命令反馈与命令建议中的生物群系、地物和结构显示为对应翻译而非标识符。",
   "authors": [
     "§e烨§b凌"
   ],

@@ -53,6 +53,8 @@ public class Translator {
                     }, (标识符) -> {
                         if (类型.equals("configured_feature")) {
                             建议构建器.suggest(标识符.toString(), Text.translatable(Util.createTranslationKey("configured_feature", 标识符)));
+                        } else if (类型.startsWith("specific")) {
+                            建议构建器.suggest(标识符.toString(), 翻译(类型.substring(9), 标识符.toString()).copy().setStyle(Style.EMPTY));
                         } else {
                             建议构建器.suggest(标识符.toString(), 翻译(类型, 标识符.toString()).copy().setStyle(Style.EMPTY));
                         }
