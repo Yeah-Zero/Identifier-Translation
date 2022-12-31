@@ -54,5 +54,6 @@
   "formatting_code.bold": "Fett",
   "formatting_code.strikethrough": "Durchgestrichen",
   "formatting_code.underline": "Unterstrichen",
-  "formatting_code.italic": "Kursiv"
+  "formatting_code.italic": "Kursiv",
+  "formatting_code.reset": "Zurücksetzen"
 }
