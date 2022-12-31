@@ -43,7 +43,7 @@ Fabric Loader ([Official Website](https://fabricmc.net/) [GitHub](https://github
 
 ### Instruction
 
-The translation of biota is taken from in-game language files, and the translation of features (Chinese only) and structures is taken from [Minecraft Wiki](https://minecraft.fandom.com/wiki/Minecraft_Wiki).
+The translation of biomes is taken from in-game language files, and the translation of features (Chinese only) and structures is taken from [Minecraft Wiki](https://minecraft.fandom.com/wiki/Minecraft_Wiki).
 
 涉及命令：`/fillbiome`、`/locate`和`/place`。
 
