@@ -11,7 +11,7 @@
 </h1> 
 
 <p align="center">
-	Make biomes, features and structures in the command feedback and command suggestions display as its corresponding translations instead of identifiers.
+	Show the biomes, features and structures in the command feedback and command suggestions as corresponding translations instead of identifiers.
 </p>
 
 <p align="center">
