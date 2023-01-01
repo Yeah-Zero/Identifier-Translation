@@ -87,7 +87,6 @@
   "modmenu.mcmod": "MCmod",
   "modmenu.curseforge": "CurseForge",
   "modmenu.modrinth": "Modrinth",
-  "modmenu.descriptionTranslation.identifier-translation": "Show the biomes, features and structures in the command feedback and command suggestions as corresponding translations instead of identifiers.\nThe translations of biomes are taken from in-game language files, and the translations of features (Chinese only) and structures are taken from Minecraft Wiki.\nCommands involved: §e/fillbiome§r, §e/locate§r and §e/place§r.
-§c§lThe mod icon does not represent any position of myself.§r",
+  "modmenu.descriptionTranslation.identifier-translation": "Show the biomes, features and structures in the command feedback and command suggestions as corresponding translations instead of identifiers.\nThe translations of biomes are taken from in-game language files, and the translations of features (Chinese only) and structures are taken from Minecraft Wiki.\nCommands involved: §e/fillbiome§r, §e/locate§r and §e/place§r.§c§lThe mod icon does not represent any position of myself.§r",
   "modmenu.summaryTranslation.identifier-translation": "Show the biomes, features and structures in the command feedback and command suggestions as corresponding translations instead of identifiers."
 }
