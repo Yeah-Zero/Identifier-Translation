@@ -5,7 +5,7 @@
   "name": "标识符翻译",
   "description": "将命令反馈与命令建议中的生物群系、地物和结构显示为对应翻译而非标识符。",
   "authors": [
-    "§e烨§b凌"
+    "§e烨§b凌§r"
   ],
   "contact": {
     "homepage": "https://github.com/Yeah-Zero/Identifier-Translation",
@@ -27,7 +27,7 @@
   ],
   "depends": {
     "fabricloader": ">=0.14.11",
-    "fabric-api": "*",
+    "fabric-resource-loader-v0": "*",
     "minecraft": "~1.19.3",
     "java": ">=17"
   },
@@ -37,7 +37,7 @@
         "modmenu.mcbbs": "",
         "modmenu.mcmod": "",
         "modmenu.curseforge": "",
-        "modmenu.modrinth": ""
+        "modmenu.modrinth": "https://modrinth.com/mod/identifier-translation"
       }
     }
   }
