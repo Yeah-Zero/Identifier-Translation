@@ -20,11 +20,8 @@
 	<img src="https://img.shields.io/github/languages/code-size/Yeah-Zero/Identifier-Translation?label=大小&style=flat-square" />
 	<img src="https://img.shields.io/static/v1?label=加载器&message=Fabric | Quilt&color=brightgreen&style=flat-square" />
 </p>
-
 <p align="center">
-    <img src="./演示图片/效果演示1.png" />
-    <img src="./演示图片/效果演示2.png" />
-    <img src="./演示图片/效果演示3.png" />
+    <img src="./演示图片/中文.png" />
 </p>
 
 ## 链接

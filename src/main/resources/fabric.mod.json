@@ -36,7 +36,7 @@
       "links": {
         "modmenu.mcbbs": "",
         "modmenu.mcmod": "",
-        "modmenu.curseforge": "",
+        "modmenu.curseforge": "https://www.curseforge.com/minecraft/mc-mods/identifier-translation",
         "modmenu.modrinth": "https://modrinth.com/mod/identifier-translation"
       }
     }
