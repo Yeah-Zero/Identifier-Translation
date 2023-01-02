@@ -1,5 +1,5 @@
 <p align="right">
-	<a href="./README-en.md"><b>中文版</b></a>
+	<a href="./README.md"><b>中文版</b></a>
 </p>
 
 <p align="left">
@@ -11,7 +11,7 @@
 </h1> 
 
 <p align="center">
-	将命令反馈与命令建议中的生物群系、地物和结构显示为对应翻译而非标识符。
+	Show the biomes, features and structures in the command feedback and command suggestions as corresponding translations instead of identifiers.
 </p>
 
 <p align="center">
@@ -43,8 +43,10 @@ Fabric Loader ([Official Website](https://fabricmc.net/) [GitHub](https://github
 
 ### Instruction
 
-生物群系翻译取自游戏内语言文件，地物（仅中文）和结构翻译取自[Minecraft Wiki](https://minecraft.fandom.com/wiki/Minecraft_Wiki)。
+The translations of biomes are taken from in-game language files, and the translations of features (Chinese only) and structures are taken from [Minecraft Wiki](https://minecraft.fandom.com/wiki/Minecraft_Wiki).
 
-涉及命令：`/fillbiome`、`/locate`和`/place`。
+Commands involved: `/fillbiome`, `/locate` and `/place`.
 
 Configuration file is saved at "\config\标识符翻译.json".
+
+The mod icon does not represent any position of myself.
