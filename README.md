@@ -26,7 +26,7 @@
 
 ## 链接
 
-[GitHub](https://github.com/Yeah-Zero/Identifier-Translation) [CurseForge](https://www.curseforge.com/minecraft/mc-mods/identifier-translation) [Modrinth](https://modrinth.com/mod/identifier-translation) [我的世界中文论坛]() [MC百科](https://www.mcmod.cn/class/XXXX.html)
+[GitHub](https://github.com/Yeah-Zero/Identifier-Translation) [CurseForge](https://www.curseforge.com/minecraft/mc-mods/identifier-translation) [Modrinth](https://modrinth.com/mod/identifier-translation) [我的世界中文论坛]() [MC百科](https://www.mcmod.cn/class/8657.html)
 
 ### 依赖项
 
