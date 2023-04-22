@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": "identifier-translation",
+  "version": "${version}",
+  "name": "标识符翻译",
+  "description": "将命令反馈与命令建议中的生物群系、地物和结构显示为对应翻译而非标识符。",
+  "authors": [
+    "§e烨§b凌§r"
+  ],
+  "contact": {
+    "homepage": "https://github.com/Yeah-Zero/Identifier-Translation",
+    "issues": "https://github.com/Yeah-Zero/Identifier-Translation/issues"
+  },
+  "license": "GNU 宽通用公共许可证 3.0",
+  "icon": "assets/identifier-translation/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "Yeah_Zero.Identifier_Translation.Main"
+    ],
+    "modmenu": [
+      "Yeah_Zero.Identifier_Translation.Configure.ScreenAPI"
+    ]
+  },
+  "mixins": [
+    "mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.11",
+    "fabric-resource-loader-v0": "*",
+    "minecraft": ">=1.19 <=1.19.2",
+    "java": ">=17"
+  },
+  "custom": {
+    "modmenu": {
+      "links": {
+        "modmenu.mcbbs": "",
+        "modmenu.mcmod": "",
+        "modmenu.curseforge": "https://www.curseforge.com/minecraft/mc-mods/identifier-translation",
+        "modmenu.modrinth": "https://modrinth.com/mod/identifier-translation"
+      }
+    }
+  }
+}

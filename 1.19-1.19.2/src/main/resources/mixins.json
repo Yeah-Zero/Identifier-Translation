@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "Yeah_Zero.Identifier_Translation.Mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "LocateCommandMixin",
+    "PlaceCommandMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
