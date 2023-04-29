@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
 public class Configuration {
-    public static final File 文件 = new File(FabricLoader.getInstance().getConfigDir().toFile().getPath(), "标识符翻译.json");
+    public static final File 文件 = new File(FabricLoader.getInstance().getConfigDir().toFile().getPath(), "identifier_translation.json");
     public static Settings 配置项;
     public static Gson gson = new GsonBuilder().serializeNulls().disableHtmlEscaping().setPrettyPrinting().create();
 
