@@ -3,7 +3,7 @@
 </p>
 
 <p align="left">
-	<img src="./src/main/resources/assets/identifier-translation/icon.png" />
+	<img src="1.19.3-1.19.4/src/main/resources/assets/identifier_translation/icon.png" />
 </p>
 
 <h1 align="center">
@@ -44,6 +44,6 @@ The translations of biomes are taken from in-game language files, and the transl
 
 Commands involved: `/fillbiome`, `/locate` and `/place`.
 
-Configuration file is saved at "\config\标识符翻译.json".
+Configuration file is saved at "\config\identifier_translation.json".
 
 The mod icon does not represent any position of myself.

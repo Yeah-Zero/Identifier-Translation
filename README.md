@@ -3,7 +3,7 @@
 </p>
 
 <p align="left">
-	<img src="./src/main/resources/assets/identifier-translation/icon.png" />
+	<img src="1.19.3-1.19.4/src/main/resources/assets/identifier_translation/icon.png" />
 </p>
 
 <h1 align="center">
@@ -42,6 +42,6 @@ Fabric Loader（[官网](https://fabricmc.net/) [GitHub](https://github.com/Fabr
 
 涉及命令：`/fillbiome`、`/locate`和`/place`。
 
-配置文件保存在“<游戏目录>\config\标识符翻译.json”。
+配置文件保存在“<游戏目录>\config\identifier_translation.json”。
 
 模组图标不代表本人任何立场。
