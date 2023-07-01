@@ -1,6 +1,6 @@
-package Yeah_Zero.Identifier_Translation;
+package Yeah_Zero.Identifier_Translation.Util;
 
-import Yeah_Zero.Identifier_Translation.Configure.Configuration;
+import Yeah_Zero.Identifier_Translation.Configure.Manager;
 import com.mojang.brigadier.suggestion.SuggestionProvider;
 import com.mojang.brigadier.suggestion.Suggestions;
 import com.mojang.datafixers.util.Pair;
@@ -91,9 +91,9 @@ public class Translator {
                 标识符翻译键名 = Text.translatable(标识符翻译键名).getString();
             }
             if (类型.equals("tag")) {
-                return Text.literal("#" + 标识符字符串).setStyle(Configuration.配置项.标签样式.生成样式().withHoverEvent(Configuration.配置项.标签样式.显示悬停文本 ? new HoverEvent(HoverEvent.Action.SHOW_TEXT, Text.translatable(标识符翻译键名)) : null));
+                return Text.literal("#" + 标识符字符串).setStyle(Manager.配置项.标签样式.生成样式().withHoverEvent(Manager.配置项.标签样式.显示悬停文本 ? new HoverEvent(HoverEvent.Action.SHOW_TEXT, Text.translatable(标识符翻译键名)) : null));
             } else if (类型.equals("configured_feature") && !MinecraftClient.getInstance().options.language.contains("zh")) {
-                return Text.literal(标识符字符串).setStyle(Configuration.配置项.标识符样式.生成样式().withHoverEvent(Configuration.配置项.标识符样式.显示悬停文本 ? new HoverEvent(HoverEvent.Action.SHOW_TEXT, Text.translatable(标识符翻译键名)) : null));
+                return Text.literal(标识符字符串).setStyle(Manager.配置项.标识符样式.生成样式().withHoverEvent(Manager.配置项.标识符样式.显示悬停文本 ? new HoverEvent(HoverEvent.Action.SHOW_TEXT, Text.translatable(标识符翻译键名)) : null));
             } else {
                 String 标识符翻译;
                 if ((标识符字符串.contains("mineshaft") && !标识符字符串.equals("minecraft:mineshaft")) || 标识符字符串.contains("ocean_ruin") || (标识符字符串.contains("ruined_portal") && !标识符字符串.equals("minecraft:ruined_portal")) || (标识符字符串.contains("shipwreck") && !标识符字符串.equals("minecraft:shipwreck")) || 标识符字符串.contains("village")) {
@@ -101,7 +101,7 @@ public class Translator {
                 } else {
                     标识符翻译 = Text.translatable(标识符翻译键名).getString();
                 }
-                return Text.literal(标识符翻译).setStyle(Configuration.配置项.标识符样式.生成样式().withHoverEvent(Configuration.配置项.标识符样式.显示悬停文本 ? new HoverEvent(HoverEvent.Action.SHOW_TEXT, Text.literal(标识符字符串)) : null));
+                return Text.literal(标识符翻译).setStyle(Manager.配置项.标识符样式.生成样式().withHoverEvent(Manager.配置项.标识符样式.显示悬停文本 ? new HoverEvent(HoverEvent.Action.SHOW_TEXT, Text.literal(标识符字符串)) : null));
             }
         }
     }
@@ -118,6 +118,6 @@ public class Translator {
         } else {
             标识符翻译 = Text.translatable(标识符翻译键名).getString();
         }
-        return Text.translatable("%s (%s)", Text.literal(标签字符串).setStyle(Configuration.配置项.标签样式.生成样式().withHoverEvent(Configuration.配置项.标签样式.显示悬停文本 ? new HoverEvent(HoverEvent.Action.SHOW_TEXT, Text.translatable(标签描述键名)) : null)), Text.literal(标识符翻译).setStyle(Configuration.配置项.标识符样式.生成样式().withHoverEvent(Configuration.配置项.标识符样式.显示悬停文本 ? new HoverEvent(HoverEvent.Action.SHOW_TEXT, Text.literal(标识符字符串)) : null)));
+        return Text.translatable("%s (%s)", Text.literal(标签字符串).setStyle(Manager.配置项.标签样式.生成样式().withHoverEvent(Manager.配置项.标签样式.显示悬停文本 ? new HoverEvent(HoverEvent.Action.SHOW_TEXT, Text.translatable(标签描述键名)) : null)), Text.literal(标识符翻译).setStyle(Manager.配置项.标识符样式.生成样式().withHoverEvent(Manager.配置项.标识符样式.显示悬停文本 ? new HoverEvent(HoverEvent.Action.SHOW_TEXT, Text.literal(标识符字符串)) : null)));
     }
 }

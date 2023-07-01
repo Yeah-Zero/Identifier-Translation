@@ -1,6 +1,6 @@
 package Yeah_Zero.Identifier_Translation.Configure;
 
-import Yeah_Zero.Identifier_Translation.ColorCode;
+import Yeah_Zero.Identifier_Translation.Util.ColorCode;
 import net.minecraft.text.Style;
 
 public class Settings {

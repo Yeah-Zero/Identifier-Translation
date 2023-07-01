@@ -1,6 +1,6 @@
 package Yeah_Zero.Identifier_Translation.Mixin;
 
-import Yeah_Zero.Identifier_Translation.Translator;
+import Yeah_Zero.Identifier_Translation.Util.Translator;
 import com.mojang.brigadier.arguments.ArgumentType;
 import com.mojang.brigadier.builder.RequiredArgumentBuilder;
 import net.minecraft.server.command.CommandManager;

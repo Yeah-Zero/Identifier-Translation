@@ -1,6 +1,6 @@
-package Yeah_Zero.Identifier_Translation;
+package Yeah_Zero.Identifier_Translation.Initializer;
 
-import Yeah_Zero.Identifier_Translation.Configure.Configuration;
+import Yeah_Zero.Identifier_Translation.Configure.Manager;
 import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,6 +10,6 @@ public class Main implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        Configuration.加载();
+        Manager.加载();
     }
 }

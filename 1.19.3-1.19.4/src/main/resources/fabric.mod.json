@@ -16,7 +16,7 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "Yeah_Zero.Identifier_Translation.Main"
+      "Yeah_Zero.Identifier_Translation.Initializer.Main"
     ],
     "modmenu": [
       "Yeah_Zero.Identifier_Translation.Configure.ScreenAPI"

@@ -1,7 +1,7 @@
 package Yeah_Zero.Identifier_Translation.Mixin;
 
-import Yeah_Zero.Identifier_Translation.Configure.Configuration;
-import Yeah_Zero.Identifier_Translation.Translator;
+import Yeah_Zero.Identifier_Translation.Configure.Manager;
+import Yeah_Zero.Identifier_Translation.Util.Translator;
 import com.mojang.brigadier.arguments.ArgumentType;
 import com.mojang.brigadier.builder.RequiredArgumentBuilder;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
@@ -56,7 +56,7 @@ public class LocateCommandMixin {
     @Redirect(method = "executeLocateStructure(Lnet/minecraft/server/command/ServerCommandSource;Lnet/minecraft/command/argument/RegistryPredicateArgumentType$RegistryPredicate;)I", at = @At(value = "INVOKE", target = "Ljava/util/Optional;orElseThrow(Ljava/util/function/Supplier;)Ljava/lang/Object;"))
     private static <X, T> T STRUCTURE_INVALID_EXCEPTION参数修改(Optional<T> 实例, Supplier<? extends X> 异常提供者) throws CommandSyntaxException {
         return 实例.orElseThrow(() -> {
-            return STRUCTURE_INVALID_EXCEPTION.create(Text.literal(谓词字符串提取).setStyle(谓词字符串提取.startsWith("#") ? Configuration.配置项.标签样式.生成样式() : Configuration.配置项.标识符样式.生成样式()));
+            return STRUCTURE_INVALID_EXCEPTION.create(Text.literal(谓词字符串提取).setStyle(谓词字符串提取.startsWith("#") ? Manager.配置项.标签样式.生成样式() : Manager.配置项.标识符样式.生成样式()));
         });
     }
 
