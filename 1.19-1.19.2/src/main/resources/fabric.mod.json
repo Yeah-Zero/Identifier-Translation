@@ -12,7 +12,7 @@
     "issues": "https://github.com/Yeah-Zero/Identifier-Translation/issues"
   },
   "license": "GNU 宽通用公共许可证 3.0",
-  "icon": "assets/identifier-translation/icon.png",
+  "icon": "assets/identifier_translation/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
