@@ -1,41 +1,43 @@
 {
-	"schemaVersion": 1,
-	"id": "template-mod",
-	"version": "${version}",
-	"name": "Template Mod",
-	"description": "This is an example description! Tell everyone what your mod is about!",
-	"authors": [
-		"Me!"
-	],
-	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
-	},
-	"license": "CC0-1.0",
-	"icon": "assets/template-mod/icon.png",
-	"environment": "*",
-	"entrypoints": {
-		"main": [
-			"com.example.ExampleMod"
-		],
-		"client": [
-			"com.example.ExampleModClient"
-		]
-	},
-	"mixins": [
-		"template-mod.mixins.json",
-		{
-			"config": "template-mod.client.mixins.json",
-			"environment": "client"
-		}
-	],
-	"depends": {
-		"fabricloader": ">=0.14.21",
-		"minecraft": "~1.20.1",
-		"java": ">=17",
-		"fabric-api": "*"
-	},
-	"suggests": {
-		"another-mod": "*"
-	}
+  "schemaVersion": 1,
+  "id": "identifier_translation",
+  "version": "${version}",
+  "name": "标识符翻译",
+  "description": "将命令反馈与命令建议中的生物群系、地物和结构显示为对应翻译而非标识符。",
+  "authors": [
+    "§e烨§b凌§r"
+  ],
+  "contact": {
+    "homepage": "https://github.com/Yeah-Zero/Identifier-Translation",
+    "issues": "https://github.com/Yeah-Zero/Identifier-Translation/issues"
+  },
+  "license": "GNU 宽通用公共许可证 3.0",
+  "icon": "assets/identifier_translation/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "Yeah_Zero.Identifier_Translation.Initializer.Main"
+    ],
+    "modmenu": [
+      "Yeah_Zero.Identifier_Translation.Configure.ScreenAPI"
+    ]
+  },
+  "mixins": [
+    "identifier_translation.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.11",
+    "fabric-resource-loader-v0": "*",
+    "minecraft": "~1.19.3",
+    "java": ">=17"
+  },
+  "custom": {
+    "modmenu": {
+      "links": {
+        "modmenu.mcmod": "https://www.mcmod.cn/class/8657.html",
+        "modmenu.curseforge": "https://www.curseforge.com/minecraft/mc-mods/identifier-translation",
+        "modmenu.modrinth": "https://modrinth.com/mod/identifier-translation"
+      }
+    }
+  }
 }
