@@ -42,7 +42,7 @@ Fabric Loader ([Official Website](https://fabricmc.net/) [GitHub](https://github
 
 The translations of biomes are taken from in-game language files, and the translations of features (Chinese only) and structures are taken from [Minecraft Wiki](https://minecraft.fandom.com/wiki/Minecraft_Wiki).
 
-Commands involved: `/fillbiome`, `/locate` and `/place`.
+Commands involved: `/effect`, `/enchant`, `/fillbiome`, `/locate` and `/place`.
 
 Configuration file is saved at "\config\identifier_translation.json".
 

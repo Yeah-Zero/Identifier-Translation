@@ -13,6 +13,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
+import java.util.function.Supplier;
+
 @Mixin(PlaceCommand.class)
 public class PlaceCommandMixin {
     @Redirect(method = "register(Lcom/mojang/brigadier/CommandDispatcher;)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/command/CommandManager;argument(Ljava/lang/String;Lcom/mojang/brigadier/arguments/ArgumentType;)Lcom/mojang/brigadier/builder/RequiredArgumentBuilder;"))
@@ -24,17 +26,17 @@ public class PlaceCommandMixin {
         };
     }
 
-    @ModifyArg(method = "executePlaceFeature(Lnet/minecraft/server/command/ServerCommandSource;Lnet/minecraft/registry/entry/RegistryEntry$Reference;Lnet/minecraft/util/math/BlockPos;)I", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/command/ServerCommandSource;sendFeedback(Lnet/minecraft/text/Text;Z)V"), index = 0)
-    private static Text 地物反馈消息修改(Text 消息) {
-        Object[] 文本参数列表 = ((TranslatableTextContent) 消息.getContent()).getArgs();
+    @ModifyArg(method = "executePlaceFeature(Lnet/minecraft/server/command/ServerCommandSource;Lnet/minecraft/registry/entry/RegistryEntry$Reference;Lnet/minecraft/util/math/BlockPos;)I", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/command/ServerCommandSource;sendFeedback(Ljava/util/function/Supplier;Z)V"), index = 0)
+    private static Supplier<Text> 地物反馈消息修改(Supplier<Text> 反馈提供者) {
+        Object[] 文本参数列表 = ((TranslatableTextContent) 反馈提供者.get().getContent()).getArgs();
         文本参数列表[0] = Translator.翻译("configured_feature", (String) 文本参数列表[0]);
-        return Text.translatable("commands.place.feature.success", 文本参数列表);
+        return () -> Text.translatable("commands.place.feature.success", 文本参数列表);
     }
 
-    @ModifyArg(method = "executePlaceStructure(Lnet/minecraft/server/command/ServerCommandSource;Lnet/minecraft/registry/entry/RegistryEntry$Reference;Lnet/minecraft/util/math/BlockPos;)I", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/command/ServerCommandSource;sendFeedback(Lnet/minecraft/text/Text;Z)V"), index = 0)
-    private static Text 结构反馈消息修改(Text 消息) {
-        Object[] 文本参数列表 = ((TranslatableTextContent) 消息.getContent()).getArgs();
+    @ModifyArg(method = "executePlaceStructure(Lnet/minecraft/server/command/ServerCommandSource;Lnet/minecraft/registry/entry/RegistryEntry$Reference;Lnet/minecraft/util/math/BlockPos;)I", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/command/ServerCommandSource;sendFeedback(Ljava/util/function/Supplier;Z)V"), index = 0)
+    private static Supplier<Text> 结构反馈消息修改(Supplier<Text> 反馈提供者) {
+        Object[] 文本参数列表 = ((TranslatableTextContent) 反馈提供者.get().getContent()).getArgs();
         文本参数列表[0] = Translator.翻译("structure", (String) 文本参数列表[0]);
-        return Text.translatable("commands.place.structure.success", 文本参数列表);
+        return () -> Text.translatable("commands.place.structure.success", 文本参数列表);
     }
 }

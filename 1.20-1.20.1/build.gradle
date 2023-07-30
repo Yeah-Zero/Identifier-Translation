@@ -24,18 +24,6 @@ repositories {
 	}
 }
 
-loom {
-    splitEnvironmentSourceSets()
-
-	mods {
-		"template-mod" {
-			sourceSet sourceSets.main
-			sourceSet sourceSets.client
-		}
-	}
-
-}
-
 dependencies {
 	// To change the versions see the gradle.properties file
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"

@@ -20,6 +20,7 @@ import net.minecraft.world.gen.structure.Structure;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
@@ -32,7 +33,9 @@ import java.util.function.Supplier;
 
 @Mixin(LocateCommand.class)
 public class LocateCommandMixin {
+    @Unique
     private static String 谓词字符串提取;
+    @Unique
     private static Text 翻译;
     @Final
     @Shadow
@@ -93,10 +96,10 @@ public class LocateCommandMixin {
         });
     }
 
-    @ModifyArg(method = "sendCoordinates(Lnet/minecraft/server/command/ServerCommandSource;Lnet/minecraft/util/math/BlockPos;Lcom/mojang/datafixers/util/Pair;Ljava/lang/String;ZLjava/lang/String;Ljava/time/Duration;)I", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/command/ServerCommandSource;sendFeedback(Lnet/minecraft/text/Text;Z)V"), index = 0)
-    private static Text 反馈消息修改(Text 消息) {
-        Object[] 文本参数列表 = ((TranslatableTextContent) 消息.getContent()).getArgs();
+    @ModifyArg(method = "sendCoordinates(Lnet/minecraft/server/command/ServerCommandSource;Lnet/minecraft/util/math/BlockPos;Lcom/mojang/datafixers/util/Pair;Ljava/lang/String;ZLjava/lang/String;Ljava/time/Duration;)I", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/command/ServerCommandSource;sendFeedback(Ljava/util/function/Supplier;Z)V"), index = 0)
+    private static Supplier<Text> 反馈消息修改(Supplier<Text> 反馈提供者) {
+        Object[] 文本参数列表 = ((TranslatableTextContent) 反馈提供者.get().getContent()).getArgs();
         文本参数列表[0] = 翻译;
-        return Text.translatable(((TranslatableTextContent) 消息.getContent()).getKey(), 文本参数列表);
+        return () -> Text.translatable(((TranslatableTextContent) 反馈提供者.get().getContent()).getKey(), 文本参数列表);
     }
 }
