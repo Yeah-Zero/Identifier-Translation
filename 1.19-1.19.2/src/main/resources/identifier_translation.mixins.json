@@ -4,9 +4,6 @@
   "package": "Yeah_Zero.Identifier_Translation.Mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "EffectCommandMixin",
-    "EnchantCommandMixin",
-    "FillBiomeCommandMixin",
     "LocateCommandMixin",
     "PlaceCommandMixin"
   ],

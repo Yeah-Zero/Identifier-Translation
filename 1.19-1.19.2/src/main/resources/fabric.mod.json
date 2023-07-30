@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "id": "identifier-translation",
+  "id": "identifier_translation",
   "version": "${version}",
   "name": "标识符翻译",
   "description": "将命令反馈与命令建议中的生物群系、地物和结构显示为对应翻译而非标识符。",
@@ -23,19 +23,18 @@
     ]
   },
   "mixins": [
-    "mixins.json"
+    "identifier_translation.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=0.14.11",
     "fabric-resource-loader-v0": "*",
-    "minecraft": ">=1.19 <=1.19.2",
+    "minecraft": "~1.19 <1.19.3",
     "java": ">=17"
   },
   "custom": {
     "modmenu": {
       "links": {
-        "modmenu.mcbbs": "",
-        "modmenu.mcmod": "",
+        "modmenu.mcmod": "https://www.mcmod.cn/class/8657.html",
         "modmenu.curseforge": "https://www.curseforge.com/minecraft/mc-mods/identifier-translation",
         "modmenu.modrinth": "https://modrinth.com/mod/identifier-translation"
       }

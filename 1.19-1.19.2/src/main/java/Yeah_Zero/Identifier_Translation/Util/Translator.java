@@ -49,9 +49,7 @@ public class Translator {
                     CommandSource.forEachMatching(注册项.getIds(), 建议构建器.getRemaining().toLowerCase(Locale.ROOT), (标识符) -> {
                         return 标识符;
                     }, (标识符) -> {
-                        if (类型.equals("configured_feature")) {
-                            建议构建器.suggest(标识符.toString(), Text.translatable(Util.createTranslationKey("configured_feature", 标识符)));
-                        } else if (类型.startsWith("specific")) {
+                        if (类型.startsWith("specific")) {
                             建议构建器.suggest(标识符.toString(), 翻译(类型.substring(9), 标识符.toString()).copy().setStyle(Style.EMPTY));
                         } else {
                             建议构建器.suggest(标识符.toString(), 翻译(类型, 标识符.toString()).copy().setStyle(Style.EMPTY));
@@ -90,19 +88,17 @@ public class Translator {
             if (类型.equals("poi")) {
                 标识符翻译键名 = Text.translatable(标识符翻译键名).getString();
             }
+            String 标识符翻译;
             if (类型.equals("tag")) {
-                return Text.literal("#" + 标识符字符串).setStyle(Manager.配置项.标签样式.生成样式().withHoverEvent(Manager.配置项.标签样式.显示悬停文本 ? new HoverEvent(HoverEvent.Action.SHOW_TEXT, Text.translatable(标识符翻译键名)) : null));
+                标识符翻译 = "#" + 标识符字符串;
             } else if (类型.equals("configured_feature") && !MinecraftClient.getInstance().options.language.contains("zh")) {
-                return Text.literal(标识符字符串).setStyle(Manager.配置项.标识符样式.生成样式().withHoverEvent(Manager.配置项.标识符样式.显示悬停文本 ? new HoverEvent(HoverEvent.Action.SHOW_TEXT, Text.translatable(标识符翻译键名)) : null));
+                标识符翻译 = 标识符字符串;
+            } else if (类型.equals("structure") && ((标识符字符串.contains("mineshaft") && !标识符字符串.equals("minecraft:mineshaft")) || 标识符字符串.contains("ocean_ruin") || (标识符字符串.contains("ruined_portal") && !标识符字符串.equals("minecraft:ruined_portal")) || (标识符字符串.contains("shipwreck") && !标识符字符串.equals("minecraft:shipwreck")) || 标识符字符串.contains("village"))) {
+                标识符翻译 = Text.translatable("%s (%s)", Text.translatable(标识符翻译键名), 生物群系名称附加(标识符翻译键名)).getString();
             } else {
-                String 标识符翻译;
-                if ((标识符字符串.contains("mineshaft") && !标识符字符串.equals("minecraft:mineshaft")) || 标识符字符串.contains("ocean_ruin") || (标识符字符串.contains("ruined_portal") && !标识符字符串.equals("minecraft:ruined_portal")) || (标识符字符串.contains("shipwreck") && !标识符字符串.equals("minecraft:shipwreck")) || 标识符字符串.contains("village")) {
-                    标识符翻译 = Text.translatable("%s (%s)", Text.translatable(标识符翻译键名), 生物群系名称附加(标识符翻译键名)).getString();
-                } else {
-                    标识符翻译 = Text.translatable(标识符翻译键名).getString();
-                }
-                return Text.literal(标识符翻译).setStyle(Manager.配置项.标识符样式.生成样式().withHoverEvent(Manager.配置项.标识符样式.显示悬停文本 ? new HoverEvent(HoverEvent.Action.SHOW_TEXT, Text.literal(标识符字符串)) : null));
+                标识符翻译 = Text.translatable(标识符翻译键名).getString();
             }
+            return Text.literal(标识符翻译).setStyle(Manager.配置项.标识符样式.生成样式().withHoverEvent(Manager.配置项.标识符样式.显示悬停文本 ? new HoverEvent(HoverEvent.Action.SHOW_TEXT, Text.literal(标识符字符串)) : null));
         }
     }
 
@@ -113,7 +109,7 @@ public class Translator {
             标识符翻译键名 = Text.translatable(标识符翻译键名).getString();
         }
         String 标识符翻译;
-        if ((标识符字符串.contains("mineshaft") && !标识符字符串.equals("minecraft:mineshaft")) || 标识符字符串.contains("ocean_ruin") || (标识符字符串.contains("ruined_portal") && !标识符字符串.equals("minecraft:ruined_portal")) || (标识符字符串.contains("shipwreck") && !标识符字符串.equals("minecraft:shipwreck")) || 标识符字符串.contains("village")) {
+        if (类型.equals("structure") && ((标识符字符串.contains("mineshaft") && !标识符字符串.equals("minecraft:mineshaft")) || 标识符字符串.contains("ocean_ruin") || (标识符字符串.contains("ruined_portal") && !标识符字符串.equals("minecraft:ruined_portal")) || (标识符字符串.contains("shipwreck") && !标识符字符串.equals("minecraft:shipwreck")) || 标识符字符串.contains("village"))) {
             标识符翻译 = Text.translatable("%s (%s)", Text.translatable(标识符翻译键名), 生物群系名称附加(标识符翻译键名)).getString();
         } else {
             标识符翻译 = Text.translatable(标识符翻译键名).getString();

@@ -19,6 +19,7 @@ import net.minecraft.world.gen.structure.Structure;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
@@ -30,7 +31,9 @@ import java.util.function.Supplier;
 
 @Mixin(LocateCommand.class)
 public class LocateCommandMixin {
+    @Unique
     private static String 谓词字符串提取, 类型;
+    @Unique
     private static Text 翻译;
     @Final
     @Shadow

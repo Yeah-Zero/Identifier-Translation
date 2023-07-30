@@ -6,7 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class Main implements ModInitializer {
-    public static final Logger 记录器 = LoggerFactory.getLogger("identifier-translation");
+    public static final Logger 记录器 = LoggerFactory.getLogger("identifier_translation");
 
     @Override
     public void onInitialize() {
